@@ -1,4 +1,5 @@
 node_modules
+db
 !easy-rsa/.keep
 easy-rsa
 !easy-rsa/.keep

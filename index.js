@@ -8,6 +8,8 @@ var exec = require('child_process').exec;
 var Store = require('ministore')('db');
 var Auth = require('./auth.js');
 Auth.init( Store );
-
+io.on('connection' , function(socket){
+  Auth.onConnect( socket );
+});
 app.use(express.static(__dirname + '/www' ) );
 server.listen( 80 );

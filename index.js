@@ -5,6 +5,7 @@ var io = require('socket.io')(server);
 
 var sys = require('sys')
 var exec = require('child_process').exec;
+var Store = require('ministore')('db');
 var Auth = require('./auth.js');
 Auth.init( Store );
 

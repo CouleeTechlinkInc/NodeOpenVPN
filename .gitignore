@@ -1,3 +1,4 @@
 node_modules
 easy-rsa
+!eash-rsa/.keep
 

@@ -1,0 +1,32 @@
+<!-- ko if : show() == false -->
+  <div class="row">
+    <div class="col-lg-4"></div>
+    <div class="col-lg-4 ">
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title">Wizard</h3>
+        </div>
+        <div class="panel-body">
+          <!-- ko foreach : currentPage() -->
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="input-group">
+                <span class="input-group-addon" data-bind="text : name"></span>
+                <input data-bind="value : value" type="text" class="form-control" placeholder="Username" aria-describedby="basic-addon1">
+              </div>
+            </div>
+          </div>
+        </br>
+          <!-- /ko -->
+          <br/>
+          <div class="row">
+            <div class="col-sm-12">
+              <button class="btn btn-primary" style="width: 100% !important" data-bind="click : login" >Login</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-4"></div>
+  </div>
+<!-- /ko -->

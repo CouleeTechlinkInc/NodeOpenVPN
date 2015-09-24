@@ -7,20 +7,28 @@
     }
 }*/
 var prompt = require('prompt');
-
-  //
-  // Start the prompt
-  //
+var schema = {
+    properties: {
+      username: {
+        pattern: /^[a-zA-Z1-9]+$/,
+        message: 'Name must be only letters, spaces, or dashes',
+        required: true
+      },
+      password: {
+        hidden: true
+      },
+      rePassword: {
+        hidden: true
+      }
+    }
+  };
   prompt.start();
 
   //
   // Get two properties from the user: username and email
   //
-  prompt.get(['username', 'email'], function (err, result) {
-    //
-    // Log the results.
-    //
-    console.log('Command-line input received:');
-    console.log('  username: ' + result.username);
-    console.log('  email: ' + result.email);
+  prompt.get(schema, function (err, result) {
+    console.log('  name: ' + result.username);
+    console.log('  password: ' + result.password);
+    console.log('  rePassword: ' + result.rePassword);
   });

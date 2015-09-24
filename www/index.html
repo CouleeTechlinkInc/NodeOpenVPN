@@ -13,7 +13,7 @@
 </head>
 <body>
   <login params="auth : auth" ></login>
-  <wizard params="show : showWizard, complete : createClientConfig, questions : ['Question 1' , 'Question 2']" ></wizard>
+  <wizard params="show : showWizard, complete : createClientConfig, questions : [{ name : 'Client Name' , 'keyname' : 'name' } ]" ></wizard>
 
   <script>
      var socket = io.connect();

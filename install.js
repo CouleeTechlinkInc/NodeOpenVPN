@@ -30,11 +30,12 @@ var schema = {
   // Get two properties from the user: username and email
   //
   prompt.get(schema, function (err, result) {
+    var crypto = require('crypto');
     var sha256 = function( string ){
       return crypto.createHash('sha256').update( string ).digest('hex') ;
     }
     var hash = sha256(  result.username + '' +  result.password );
-    var crypto = require('crypto');
+
     var Store = require('ministore')('db');
     var Users = Store('users');
     var challange = sha256( Math.random() + 'x' + Math.random() + new Date().getTime() + "Y" + self.counter + hash + result.displayName );

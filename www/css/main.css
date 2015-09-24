@@ -12,6 +12,17 @@ div.headerbar {
   border-left-color: #337ab7;
   border-right-color: #337ab7;
 }
+div.headerbar .logo {
+  height: 40px;
+  top: 0;
+  padding-left: 5px;
+  padding-right: 5px;
+  background-color: rgba(255, 255, 255, 0.6);
+  background-image: linear-gradient(rgba(200, 200, 200, 0.6) 0px, rgba(255, 255, 255, 0.6) 100%);
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  background-repeat: repeat-x;
+}
 .whiteout {
   position: fixed;
   top: 0;

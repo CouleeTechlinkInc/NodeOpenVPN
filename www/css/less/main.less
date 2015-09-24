@@ -3,3 +3,20 @@ div.headerbar {
   height : 50px;
   background-color : orange;
 }
+.whiteout {
+  position: fixed;
+  top : 0;
+  bottom : 0;
+  left : 0;
+  right : 0;
+  z-index : 50;
+  background : rgba(255,255,255,0.8);
+  .loginpanel {
+    position: fixed;
+    z-index : 100;
+    top : ~"calc(50% - 100px)";
+    bottom : ~"calc(50% - 100px)";
+    left : ~"calc(50% - 100px)";
+    right :~"calc(50% - 100px)";
+  }
+}

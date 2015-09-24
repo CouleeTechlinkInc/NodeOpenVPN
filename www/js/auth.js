@@ -5,7 +5,7 @@ var Auth = function(){
   self.password = ko.observable('');
   self.displayName = ko.observable('');
   self.loggedIn = ko.observable(false);
-  self.login : function(){
+  self.login = function(){
       self.baseHash( CryptoJS.SHA256(  self.username() + '' +  self.password()  ).toString() );
       self.password(''); // Clear the password it is no loner needed
       socket.emit('checkAuth' , self.username() );

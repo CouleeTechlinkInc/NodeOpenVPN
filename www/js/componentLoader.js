@@ -2,6 +2,10 @@ ko.components.register('login', {
   template : { url : "components/login.html" },
   viewModel : { url : "components/login.js"}
 });
+ko.components.register('wizard', {
+  template : { url : "components/wizard.html" },
+  viewModel : { url : "components/wizard.js"}
+});
 var componentLoader = {
     loadTemplate: function(name, config, callback) {
         if (config.url) {

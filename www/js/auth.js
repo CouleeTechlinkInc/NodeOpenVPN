@@ -11,7 +11,6 @@ var Auth = function(){
       socket.emit('checkAuth' , self.username() );
   }
   self.sendLogin = function( challange ){
-    var self = settingsManager.user;
     //Hash this with the challenge to create a token that is unique to prevent playback attacks
     var authHash = CryptoJS.SHA256(  self.baseHash() + '' + challange ).toString();
     socket.emit( 'verifyAuth' , { hash : authHash , username : self.username() } );

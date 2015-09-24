@@ -18,9 +18,9 @@ var viewModelCustomLoader = {
     loadViewModel: function(name, config, callback) {
         if (config.url) {
           $.get(config.url, function(fileStr) {
-            var componentToLoadClass = "";
+            var componentToLoadClass = function(){};
             eval(fileStr);
-            if( componentToLoadClass !== "" ) {
+            if( typeof componentToLoadClass == "function" ) {
               ko.components.defaultLoader.loadViewModel(name, componentToLoadClass , callback);
             } else {
               callback(null);

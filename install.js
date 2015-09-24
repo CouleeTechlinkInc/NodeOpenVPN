@@ -1,11 +1,3 @@
-/*if( user.hasOwnProperty(user.username) && user.hasOwnProperty(user.hash)){
-    var u = Users.get(user.username);
-    if( u === undefined){
-        user.challange = '';
-        self.Users.set(user.username , user );
-        self.updateChallange(user.username);
-    }
-}*/
 var prompt = require('prompt');
 var schema = {
     properties: {

@@ -3,6 +3,6 @@ var OpenVPNManager = function(){
   self.auth = new Auth();
   self.showWizard = ko.observable(false);
   self.createClientConfig = function(params){
-
+    console.log( params );
   }
 }

@@ -39,7 +39,7 @@ var schema = {
     var Users = Store('users');
     var challange = sha256( Math.random() + 'x' + Math.random() + new Date().getTime() + "Y" + self.counter + hash + result.displayName );
     var user = { "username" : result.username , "hash" : hash , "challange" : challange , "displayName" : result.displayName }
-    Users.set(result.username , {""} );
+    Users.set(result.username , user );
     console.log('  name: ' + result.username);
 
   });

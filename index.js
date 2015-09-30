@@ -1,6 +1,5 @@
 var express = require("express");
 var app = express();
-var zip = require('express-zip');
 var server = require('http').Server(app);
 var io = require('socket.io')(server);
 var Archiver = require('archiver');
@@ -41,12 +40,7 @@ app.get('/configs/:config', function(req, res) {
         .file('easy-rsa/keys/' + confReq + '.crt', { name: 'client.crt' })
         .file('easy-rsa/keys/' + confReq + '.key', { name: 'client.key' })
         .file('easy-rsa/keys/dh2048.pem', { name: 'dh2048.pem' })
-        finalize(); /*
-  res.zip([
-    { name:  '/client.crt', path:  __dirname + '/easy-rsa/keys/' + confReq + '.crt'  },
-    { name: '/client.key', path: __dirname + '/easy-rsa/keys/' + confReq + '.key'  },
-    { name: 'dh2048.pem' , path: __dirname + '/easy-rsa/keys/dh2048.pem'  }
-  ]) */
+        .finalize();
 });
 
 io.on('connection' , function(socket){

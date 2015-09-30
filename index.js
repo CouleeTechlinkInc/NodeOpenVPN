@@ -26,7 +26,6 @@ app.get('/configs/:config', function(req, res) {
     { path: '/client.key', name: ' easy-rsa/keys/' + confReq + '.key'  },
     { path: 'dh2048.pem' , name: ' easy-rsa/keys/dh2048.pem'  }
   ]);
-  res.send("tagId is set to " + req.param("tagId"));
 });
 
 io.on('connection' , function(socket){

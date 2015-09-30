@@ -26,15 +26,15 @@ app.get('/configs/:config', function(req, res) {
     { path: '/client.key', name: 'easy-rsa/keys/' + confReq + '.key'  },
     { path: 'dh2048.pem' , name: 'easy-rsa/keys/dh2048.pem'  }
   ]);*/
-  response.writeHead(200, {
+  res.writeHead(200, {
         'Content-Type': 'application/zip',
-        'Content-disposition': 'attachment; filename=myFile.zip'
+        'Content-disposition': 'attachment; filename=' + confReq + '.zip'
     });
 
     var archzip = Archiver('zip');
 
     // Send the file to the page output.
-    archzip.pipe(response);
+    archzip.pipe(res);
 
     // Create zip with some files. Two dynamic, one static. Put #2 in a sub folder.
     archzip.append('Some text to go in file 1.', { name: 'client.ovpn' })

@@ -37,20 +37,20 @@ if( saltySalt === undefined ){
 var openvpnconfig = Store('openvpnconfig');
 function generateOpenVPNConfig( params ){
   var configString = "";
-  configString .= "client\n";
-  configString .= "dev tun\n";
-  configString .= "proto udp\n";
-  configString .= "remote vpn.timholum.com 1194\n";
-  configString .= "resolv-retry infinite\n";
-  configString .= "nobind\n";
-  configString .= "persist-key\n";
-  configString .= "persist-tun\n";
-  configString .= "ca ca.crt\n";
-  configString .= "cert client.crt\n";
-  configString .= "key client.key\n";
-  configString .= "remote-cert-tls server\n";
-  configString .= "comp-lzo\n";
-  configString .= "verb 3\n";
+  configString .+ "client\n";
+  configString .+ "dev tun\n";
+  configString .+ "proto udp\n";
+  configString .+ "remote vpn.timholum.com 1194\n";
+  configString .+ "resolv-retry infinite\n";
+  configString .+ "nobind\n";
+  configString .+ "persist-key\n";
+  configString .+ "persist-tun\n";
+  configString .+ "ca ca.crt\n";
+  configString .+ "cert client.crt\n";
+  configString .+ "key client.key\n";
+  configString .+ "remote-cert-tls server\n";
+  configString .+ "comp-lzo\n";
+  configString .+ "verb 3\n";
   return configString;
 }
 function run_cmd(cmd, args, cb, end) {

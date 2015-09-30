@@ -7,10 +7,12 @@ var OpenVPNManager = function(){
     ]
   )
   self.showWizard = ko.observable(false);
+  socket.on("clientCreated" , function(data){
+    console.log("clientCreated");
+    console.log( data );
+  });
   self.createClientConfig = function(params){
     console.log( params );
-    /* socket.emit("" , {
-
-    }); */
+    socket.emit("createOpenVPNConfig" , params );
   }
 }

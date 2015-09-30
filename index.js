@@ -22,11 +22,11 @@ io.on('connection' , function(socket){
   Auth.onConnect( socket );
   socket.on( 'createOpenVPNConfig' , function( data ){
       if( socket.loggedIn === true && socket.username !== '' ){
-        var foo = new run_cmd(
+        var runCommand = new run_cmd(
             './createclient', [ data.clientName ],
             function (me, buffer) { me.stdout += buffer.toString() },
             function () {
-              socket.emit("clientCreated" , { "name" : data.clientName } );
+              socket.emit("clientCreated" , { "clientName" : data.clientName } );
             }
         );
       }

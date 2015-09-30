@@ -3,7 +3,7 @@ var app = express();
 var zip = require('express-zip');
 var server = require('http').Server(app);
 var io = require('socket.io')(server);
-
+var Archiver = require('archiver');
 var sys = require('sys')
 var exec = require('child_process').exec;
 var Store = require('ministore')('db');

@@ -9,5 +9,8 @@ var OpenVPNManager = function(){
   self.showWizard = ko.observable(false);
   self.createClientConfig = function(params){
     console.log( params );
+    /* socket.emit("" , {
+
+    }); */
   }
 }

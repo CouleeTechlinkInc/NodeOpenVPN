@@ -45,6 +45,7 @@ function run_cmd(cmd, args, cb, end) {
 }
 
 app.get('/configs/:config/:authhash', function(req, res) {
+  console.log( req.params );
   var confReq = req.params.config;
   var hash = req.params.authhash;
   console.log( authhash );

@@ -17,7 +17,7 @@ var saltySalt = configStore.get("salt");
 if( saltySalt === undefined ){
   console.log("Salt found, Generating one, Please wait a few min");
   saltySalt = String( Math.random(1 , 9999 ) ) + String( Math.random(1,9999) ) + String( Math.random(1,9999) ) + String( Math.random(1,9999) ) + String( Math.random(1 , 9999 ) ) + String( Math.random(1,9999) );
-  var randNum =  Math.round( ( Math.random( ) * 100 ) + 15 );
+  var randNum =  Math.round( ( Math.random( ) * 100000 ) + 150 );
   while( randNum > 0 ){
     saltySalt = sha256( saltySalt );
     randNum--;
@@ -26,7 +26,7 @@ if( saltySalt === undefined ){
   console.log("Round " + saltRound +"  Done");
   saltRound++;
   saltySalt = saltySalt + String( Math.random(1 , 9999 ) ) + String( Math.random(1,9999) ) + String( Math.random(1,9999) ) + String( Math.random(1,9999) );
-  randNum =  Math.round( ( Math.random( ) * 100 ) + 15 );
+  randNum =  Math.round( ( Math.random( ) * 100000 ) + 150 );
   while( randNum > 0 ){
     saltySalt = sha256( saltySalt );
     randNum--;
@@ -34,7 +34,7 @@ if( saltySalt === undefined ){
   console.log("Round " + saltRound +"  Done");
   saltRound++;
   saltySalt = saltySalt + String( Math.random(1 , 9999 ) ) + String( Math.random(1,9999) ) + String( Math.random(1,9999) ) + String( Math.random(1,9999) );
-  randNum =  Math.round( ( Math.random( ) * 100 ) + 15 );
+  randNum =  Math.round( ( Math.random( ) * 100000 ) + 150 );
   while( randNum > 0 ){
     saltySalt = sha256( saltySalt );
     randNum--;
@@ -42,7 +42,7 @@ if( saltySalt === undefined ){
   console.log("Round " + saltRound +"  Done");
   saltRound++;
   saltySalt = saltySalt + String( Math.random(1 , 9999 ) ) + String( Math.random(1,9999) ) + String( Math.random(1,9999) ) + String( Math.random(1,9999) );
-  randNum =  Math.round( ( Math.random( ) * 100 ) + 15 );
+  randNum =  Math.round( ( Math.random( ) * 100000 ) + 150 );
   while( randNum > 0 ){
     saltySalt = sha256( saltySalt );
     randNum--;
@@ -50,7 +50,7 @@ if( saltySalt === undefined ){
   console.log("Round " + saltRound +"  Done");
   saltRound++;
   saltySalt = saltySalt + String( Math.random(1 , 9999 ) ) + String( Math.random(1,9999) ) + String( Math.random(1,9999) ) + String( Math.random(1,9999) );
-  randNum =  Math.round( ( Math.random( ) * 100 ) + 15 );
+  randNum =  Math.round( ( Math.random( ) * 100000 ) + 150 );
   while( randNum > 0 ){
     saltySalt = sha256( saltySalt );
     randNum--;
@@ -58,6 +58,67 @@ if( saltySalt === undefined ){
   console.log("Round " + saltRound +"  Done");
   saltRound++;
   saltySalt = saltySalt + String( Math.random(1 , 9999 ) ) + String( Math.random(1,9999) ) + String( Math.random(1,9999) ) + String( Math.random(1,9999) );
+  randNum =  Math.round( ( Math.random( ) * 100000 ) + 150 );
+  while( randNum > 0 ){
+    saltySalt = sha256( saltySalt );
+    randNum--;
+  }
+  console.log("Round " + saltRound +"  Done");
+  saltRound++;
+  saltySalt = saltySalt + String( Math.random(1 , 9999 ) ) + String( Math.random(1,9999) ) + String( Math.random(1,9999) ) + String( Math.random(1,9999) );
+  randNum =  Math.round( ( Math.random( ) * 100000 ) + 150 );
+  while( randNum > 0 ){
+    saltySalt = sha256( saltySalt );
+    randNum--;
+  }
+  console.log("Round " + saltRound +"  Done");
+  saltRound++;
+  saltySalt = saltySalt + String( Math.random(1 , 9999 ) ) + String( Math.random(1,9999) ) + String( Math.random(1,9999) ) + String( Math.random(1,9999) );
+  randNum =  Math.round( ( Math.random( ) * 100000 ) + 150 );
+  while( randNum > 0 ){
+    saltySalt = sha256( saltySalt );
+    randNum--;
+  }
+  console.log("Round " + saltRound +"  Done");
+  saltRound++;
+  saltySalt = saltySalt + String( Math.random(1 , 9999 ) ) + String( Math.random(1,9999) ) + String( Math.random(1,9999) ) + String( Math.random(1,9999) );
+  randNum =  Math.round( ( Math.random( ) * 100000 ) + 150 );
+  while( randNum > 0 ){
+    saltySalt = sha256( saltySalt );
+    randNum--;
+  }
+  console.log("Round " + saltRound +"  Done");
+  saltRound++;
+  saltySalt = saltySalt + String( Math.random(1 , 9999 ) ) + String( Math.random(1,9999) ) + String( Math.random(1,9999) ) + String( Math.random(1,9999) );
+  randNum =  Math.round( ( Math.random( ) * 100000 ) + 150 );
+  while( randNum > 0 ){
+    saltySalt = sha256( saltySalt );
+    randNum--;
+  }
+  console.log("Round " + saltRound +"  Done");
+  saltRound++;
+  saltySalt = saltySalt + String( Math.random(1 , 9999 ) ) + String( Math.random(1,9999) ) + String( Math.random(1,9999) ) + String( Math.random(1,9999) );
+  randNum =  Math.round( ( Math.random( ) * 100000 ) + 150 );
+  while( randNum > 0 ){
+    saltySalt = sha256( saltySalt );
+    randNum--;
+  }
+  console.log("Round " + saltRound +"  Done");
+  saltRound++;
+  saltySalt = saltySalt + String( Math.random(1 , 9999 ) ) + String( Math.random(1,9999) ) + String( Math.random(1,9999) ) + String( Math.random(1,9999) );
+  randNum =  Math.round( ( Math.random( ) * 100000 ) + 150 );
+  while( randNum > 0 ){
+    saltySalt = sha256( saltySalt );
+    randNum--;
+  }
+  console.log("Round " + saltRound +"  Done");
+  saltRound++;
+  saltySalt = saltySalt + String( Math.random(1 , 9999 ) ) + String( Math.random(1,9999) ) + String( Math.random(1,9999) ) + String( Math.random(1,9999) );
+  randNum =  Math.round( ( Math.random( ) * 100000 ) + 150 );
+  while( randNum > 0 ){
+    saltySalt = sha256( saltySalt );
+    randNum--;
+  }
   configStore.set("salt" , saltySalt );
   console.log("Salt Generated, Your Salt is" + saltySalt );
 }

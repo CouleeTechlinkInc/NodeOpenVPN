@@ -120,7 +120,7 @@ if( saltySalt === undefined ){
     randNum--;
   }
   configStore.set("salt" , saltySalt );
-  console.log("Salt Generated, Your Salt is" + saltySalt );
+  console.log("Salt Generated" );
 }
 
 var openvpnconfig = Store('openvpnconfig');

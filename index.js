@@ -7,7 +7,61 @@ var sys = require('sys')
 var exec = require('child_process').exec;
 var Store = require('ministore')('db');
 var Auth = require('./auth.js');
+var crypto = require('crypto');
+var sha256 = function( data ){
+    return crypto.createHash('sha256').update(data).digest('hex');
+}
 Auth.init( Store );
+var configStore = Store( "config");
+var saltySalt = configStore.get("salt");
+if( saltySalt === undefined ){
+  console.log("Salt found, Generating one, Please wait a few min");
+  saltySalt = String( Math.random(1 , 9999 ) ) + String( Math.random(1,9999) ) + String( Math.random(1,9999) ) + String( Math.random(1,9999) ) + String( Math.random(1 , 9999 ) ) + String( Math.random(1,9999) );
+  var randNum =  Math.round( ( Math.random( ) * 100 ) + 15 );
+  while( randNum > 0 ){
+    saltySalt = sha256( saltySalt );
+    randNum--;
+  }
+  var saltRound = 1;
+  console.log("Round " + saltRound +"  Done");
+  saltRound++;
+  saltySalt = saltySalt + String( Math.random(1 , 9999 ) ) + String( Math.random(1,9999) ) + String( Math.random(1,9999) ) + String( Math.random(1,9999) );
+  randNum =  Math.round( ( Math.random( ) * 100 ) + 15 );
+  while( randNum > 0 ){
+    saltySalt = sha256( saltySalt );
+    randNum--;
+  }
+  console.log("Round " + saltRound +"  Done");
+  saltRound++;
+  saltySalt = saltySalt + String( Math.random(1 , 9999 ) ) + String( Math.random(1,9999) ) + String( Math.random(1,9999) ) + String( Math.random(1,9999) );
+  randNum =  Math.round( ( Math.random( ) * 100 ) + 15 );
+  while( randNum > 0 ){
+    saltySalt = sha256( saltySalt );
+    randNum--;
+  }
+  console.log("Round " + saltRound +"  Done");
+  saltRound++;
+  saltySalt = saltySalt + String( Math.random(1 , 9999 ) ) + String( Math.random(1,9999) ) + String( Math.random(1,9999) ) + String( Math.random(1,9999) );
+  randNum =  Math.round( ( Math.random( ) * 100 ) + 15 );
+  while( randNum > 0 ){
+    saltySalt = sha256( saltySalt );
+    randNum--;
+  }
+  console.log("Round " + saltRound +"  Done");
+  saltRound++;
+  saltySalt = saltySalt + String( Math.random(1 , 9999 ) ) + String( Math.random(1,9999) ) + String( Math.random(1,9999) ) + String( Math.random(1,9999) );
+  randNum =  Math.round( ( Math.random( ) * 100 ) + 15 );
+  while( randNum > 0 ){
+    saltySalt = sha256( saltySalt );
+    randNum--;
+  }
+  console.log("Round " + saltRound +"  Done");
+  saltRound++;
+  saltySalt = saltySalt + String( Math.random(1 , 9999 ) ) + String( Math.random(1,9999) ) + String( Math.random(1,9999) ) + String( Math.random(1,9999) );
+  configStore.set("salt" , saltySalt );
+  console.log("Salt Generated, Your Salt is" + saltySalt );
+}
+
 var openvpnconfig = Store('openvpnconfig');
 function run_cmd(cmd, args, cb, end) {
     var spawn = require('child_process').spawn,

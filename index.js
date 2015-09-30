@@ -1,5 +1,6 @@
 var express = require("express");
 var app = express();
+var zip = require('express-zip');
 var server = require('http').Server(app);
 var io = require('socket.io')(server);
 
@@ -17,6 +18,16 @@ function run_cmd(cmd, args, cb, end) {
     child.stdout.on('data', function (buffer) { cb(me, buffer) });
     child.stdout.on('end', end);
 }
+
+app.get('/configs/:config', function(req, res) {
+  var confReq = req.param("config");
+  res.zip([
+    { path: '/client.crt', name: ' easy-rsa/keys/' + confReq + '.crt'  },
+    { path: '/client.key', name: ' easy-rsa/keys/' + confReq + '.key'  },
+    { path: 'dh2048.pem' , name: ' easy-rsa/keys/dh2048.pem'  }
+  ]);
+  res.send("tagId is set to " + req.param("tagId"));
+});
 
 io.on('connection' , function(socket){
   Auth.onConnect( socket );

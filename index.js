@@ -27,9 +27,9 @@ app.get('/configs/:config', function(req, res) {
     { path: 'dh2048.pem' , name: 'easy-rsa/keys/dh2048.pem'  }
   ]);*/
   res.send([
-    { path: '/client.crt', name: 'easy-rsa/keys/' + confReq + '.crt'  },
-    { path: '/client.key', name: 'easy-rsa/keys/' + confReq + '.key'  },
-    { path: 'dh2048.pem' , name: 'easy-rsa/keys/dh2048.pem'  }
+    { name:  '/client.crt', path:  __dirname + 'easy-rsa/keys/' + confReq + '.crt'  },
+    { name: '/client.key', path: __dirname + 'easy-rsa/keys/' + confReq + '.key'  },
+    { name: 'dh2048.pem' , path: __dirname + 'easy-rsa/keys/dh2048.pem'  }
   ])
 });
 

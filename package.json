@@ -7,6 +7,7 @@
     "express": "^4.13.3"
   },
   "devDependencies": {
+    "archiver": "^0.15.1",
     "crypto": "0.0.3",
     "express": "^4.13.3",
     "express-zip": "^2.0.0",

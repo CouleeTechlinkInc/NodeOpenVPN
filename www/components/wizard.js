@@ -31,7 +31,7 @@ componentToLoadClass = function( params ){
   self.submit = function(){
     var data = {};
     $.each( self.questions() , function(key,val){
-      data[val.name()] = val.value();
+      data[val.keyname()] = val.value();
     });
     params.complete(data);
     self.show( false );

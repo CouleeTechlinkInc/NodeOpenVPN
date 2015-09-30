@@ -22,9 +22,9 @@ function run_cmd(cmd, args, cb, end) {
 app.get('/configs/:config', function(req, res) {
   var confReq = req.param("config");
   res.zip([
-    { path: '/client.crt', name: ' easy-rsa/keys/' + confReq + '.crt'  },
-    { path: '/client.key', name: ' easy-rsa/keys/' + confReq + '.key'  },
-    { path: 'dh2048.pem' , name: ' easy-rsa/keys/dh2048.pem'  }
+    { path: '/client.crt', name: 'easy-rsa/keys/' + confReq + '.crt'  },
+    { path: '/client.key', name: 'easy-rsa/keys/' + confReq + '.key'  },
+    { path: 'dh2048.pem' , name: 'easy-rsa/keys/dh2048.pem'  }
   ]);
 });
 

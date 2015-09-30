@@ -35,6 +35,24 @@ if( saltySalt === undefined ){
 }
 
 var openvpnconfig = Store('openvpnconfig');
+function generateOpenVPNConfig( params ){
+  var configString = "";
+  configString .= "client\n";
+  configString .= "dev tun\n";
+  configString .= "proto udp\n";
+  configString .= "remote vpn.timholum.com 1194\n";
+  configString .= "resolv-retry infinite\n";
+  configString .= "nobind\n";
+  configString .= "persist-key\n";
+  configString .= "persist-tun\n";
+  configString .= "ca ca.crt\n";
+  configString .= "cert client.crt\n";
+  configString .= "key client.key\n";
+  configString .= "remote-cert-tls server\n";
+  configString .= "comp-lzo\n";
+  configString .= "verb 3\n";
+  return configString;
+}
 function run_cmd(cmd, args, cb, end) {
     var spawn = require('child_process').spawn,
         child = spawn(cmd, args),
@@ -45,26 +63,25 @@ function run_cmd(cmd, args, cb, end) {
 }
 
 app.get('/configs/:config/:authhash', function(req, res) {
-  console.log( req.params );
+  /*
+    Configs links are unique per ip, If your ip changes, the link will be invalid
+  */
   var confReq = req.params.config;
   var authhash = req.params.authhash;
-  console.log( authhash );
-  res.writeHead(200, {
+  var hashCheck = sha256( req.connection.remoteAddress + confReq + saltySalt );
+  if( authhash == hashCheck ){
+    res.writeHead(200, {
         'Content-Type': 'application/zip',
         'Content-disposition': 'attachment; filename=' + confReq + '.zip'
     });
-
     var archzip = Archiver('zip');
-
-    // Send the file to the page output.
     archzip.pipe(res);
-
-    // Create zip with some files. Two dynamic, one static. Put #2 in a sub folder.
-    archzip.append('Some text to go in file 1.', { name: 'client.ovpn' })
+    archzip.append( generateOpenVPNConfig() , { name: 'client.ovpn' })
         .file('easy-rsa/keys/' + confReq + '.crt', { name: 'client.crt' })
         .file('easy-rsa/keys/' + confReq + '.key', { name: 'client.key' })
         .file('easy-rsa/keys/dh2048.pem', { name: 'dh2048.pem' })
         .finalize();
+  }
 });
 
 io.on('connection' , function(socket){
@@ -78,7 +95,7 @@ io.on('connection' , function(socket){
             './createclient', [ data.clientName ],
             function (me, buffer) { me.stdout += buffer.toString() },
             function () {
-              socket.emit("clientCreated" , { "clientName" : data.clientName } );
+              socket.emit("clientCreated" , { "clientName" : data.clientName , "hash" : sha256( socket.handshake.address + data.clientName + saltySalt ) } );
             }
         );
       }

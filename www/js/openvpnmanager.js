@@ -7,6 +7,7 @@ var OpenVPNManager = function(){
     ]
   )
   self.showWizard = ko.observable(false);
+  socket.on("myIp" , function( data ){console.log( data ); });
   socket.on("clientCreated" , function(data){
     console.log("clientCreated");
     console.log( data );

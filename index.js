@@ -45,8 +45,7 @@ function run_cmd(cmd, args, cb, end) {
 }
 
 app.get('/configs/:config', function(req, res) {
-  var confReq = req.param("config");
-  console.log( req.params.config );
+  var confReq = req.params.config;
   res.writeHead(200, {
         'Content-Type': 'application/zip',
         'Content-disposition': 'attachment; filename=' + confReq + '.zip'
@@ -67,6 +66,9 @@ app.get('/configs/:config', function(req, res) {
 
 io.on('connection' , function(socket){
   Auth.onConnect( socket );
+  socket.on('getIp' , function(data){
+    socket.emit('myIp' , socket.handshake.address );
+  });
   socket.on( 'createOpenVPNConfig' , function( data ){
       if( socket.loggedIn === true && socket.username !== '' ){
         var runCommand = new run_cmd(

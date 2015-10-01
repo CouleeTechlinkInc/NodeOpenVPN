@@ -8,6 +8,7 @@ var exec = require('child_process').exec;
 var Store = require('ministore')('db');
 var Auth = require('./auth.js');
 var crypto = require('crypto');
+var fs = require('fs');
 var sha256 = function( data ){
     return crypto.createHash('sha256').update(data).digest('hex');
 }

@@ -24,6 +24,7 @@ div.sidebar {
 }
 div.sidebar ul {
   list-style-type: none;
+  padding: 0;
 }
 div.sidebar ul li {
   width: 100%;
@@ -34,6 +35,12 @@ div.sidebar ul li {
   vertical-align: middle;
   border-width: 0 0 1px 0;
   border-color: white;
+  padding-top: 3px;
+  font-size: 24px;
+  font-weight: 100;
+}
+div.sidebar ul li.active {
+  background-color: #ffffff;
 }
 div.mainpage {
   position: absolute;

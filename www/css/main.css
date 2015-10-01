@@ -4,7 +4,6 @@ div.sidebar {
   left: 0;
   bottom: 0;
   width: 25%;
-  list-style-type: none;
   /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#474a4f+0,353535+100 */
   background: #474a4f;
   /* Old browsers */
@@ -23,6 +22,9 @@ div.sidebar {
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#474a4f', endColorstr='#353535', GradientType=1);
   /* IE6-9 */
 }
+div.sidebar ul {
+  list-style-type: none;
+}
 div.sidebar ul li {
   width: 100%;
   height: 40px;
@@ -31,11 +33,7 @@ div.sidebar ul li {
   text-align: center;
   vertical-align: middle;
   border-width: 0 0 1px 0;
-  border-image: -webkit-linear-gradient(top, #0c93c0, #ffffff);
-  border-image: -moz-linear-gradient(top, #0c93c0, #ffffff);
-  border-image: -ms-linear-gradient(top, #0c93c0, #ffffff);
-  border-image: -o-linear-gradient(top, #0c93c0, #ffffff);
-  border-image: linear-gradient(top, #0c93c0, #ffffff);
+  border-color: white;
 }
 div.mainpage {
   position: absolute;

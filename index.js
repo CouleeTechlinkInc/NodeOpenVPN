@@ -109,13 +109,7 @@ app.get('/configs/:config/:authhash', function(req, res) {
 
 io.on('connection' , function(socket){
   Auth.onConnect( socket );
-  getAllOpenVPNConfigs(function(configs){
-    var goodConfigs = [];
-    configs.forEach( function(item){
-      goodConfigs.push( { "clientName" : item , "hash" : sha256( socket.handshake.address + item + saltySalt ) } );
-    });
-    socket.emit('allClients' , goodConfigs );
-  });
+
   socket.on('getIp' , function(data){
     socket.emit('myIp' , socket.handshake.address );
   });
@@ -131,7 +125,15 @@ io.on('connection' , function(socket){
       }
   });
   socket.on('getOpenVPNConfigs' , function( data ){
-
+    if( socket.loggedIn === true && socket.username !== '' ){
+      getAllOpenVPNConfigs(function(configs){
+        var goodConfigs = [];
+        configs.forEach( function(item){
+          goodConfigs.push( { "clientName" : item , "hash" : sha256( socket.handshake.address + item + saltySalt ) } );
+        });
+        socket.emit('allClients' , goodConfigs );
+      });
+    }
   });
 });
 app.use(express.static(__dirname + '/www' ) );

@@ -1,3 +1,4 @@
+var runOnLogin = [];
 ko.components.register('login', {
   template : { url : "components/login.html" },
   viewModel : { url : "components/login.js"}
@@ -5,6 +6,10 @@ ko.components.register('login', {
 ko.components.register('wizard', {
   template : { url : "components/wizard.html" },
   viewModel : { url : "components/wizard.js"}
+});
+ko.components.register('pageClients', {
+  template : { url : "components/clients.html" },
+  viewModel : { url : "components/clients.js"}
 });
 var componentLoader = {
     loadTemplate: function(name, config, callback) {

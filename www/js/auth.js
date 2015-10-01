@@ -5,6 +5,15 @@ var Auth = function(){
   self.password = ko.observable('');
   self.displayName = ko.observable('');
   self.loggedIn = ko.observable(false);
+  self.loggedIn.subscribe( function( val ){
+    if( val ){
+      runOnLogin.forEach( function( rol ){
+        if( typeof rol == "function" ){
+          rol();
+        }
+      })
+    }
+  })
   self.login = function(){
       self.baseHash( CryptoJS.SHA256(  self.username() + '' +  self.password()  ).toString() );
       self.password(''); // Clear the password it is no loner needed

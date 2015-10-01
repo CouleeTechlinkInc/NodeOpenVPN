@@ -21,7 +21,11 @@
   </div>
   <login params="auth : auth" ></login>
   <wizard params="show : showWizard, complete : createClientConfig, questions : [{ name : 'Client Name' , 'keyname' : 'clientName' } ]" ></wizard>
-
+  <!-- ko component: {
+      name : componentToUse() ,
+      params: { "ovm" : $data , "socket" : socket }
+  } -->
+  <!-- /ko -->
   <script>
      var socket = io.connect();
      var ovm = new OpenVPNManager();

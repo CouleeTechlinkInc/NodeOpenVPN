@@ -1,16 +1,16 @@
 <div class="sidebar" >
 <ul >
   <li data-bind="click : function(){ subpage('clientList');},css : {'active' : subpage() == 'clientList' }" > Client List</li>
-  <li data-bind="click : function(){ showWizard( true ); }" >Create Client</li>
+  <li data-bind="click : function(){ subpage('clientList'); showWizard( true ); }" >Create Client</li>
 </ul>
 </div>
 
-<wizard params="show : showWizard, complete : createClientConfig, questions : [{ name : 'Client Name' , 'keyname' : 'clientName' } ]" ></wizard>
 <div class="mainpage" >
-  <ul data-bind="foreach : allClients() " >
-  <li >
-    <!-- ko text : clientName --><!-- /ko -->
-    <a data-bind="attr : { href : '/configs/' + clientName + '/' + hash }" >Download</a>
+  <wizard params="show : showWizard, complete : createClientConfig, questions : [{ name : 'Client Name' , 'keyname' : 'clientName' } ]" ></wizard>
+  <ul data-bind=" visible : showWizard() == false, foreach : allClients() " class="clientLists" >
+  <li class="clientItem" >
+    <p class="clientName" ><!-- ko text : clientName --><!-- /ko --></p>
+    <a class="clientLink" data-bind="attr : { href : '/configs/' + clientName + '/' + hash }" >Download</a>
   </li>
   </ul>
 </div>

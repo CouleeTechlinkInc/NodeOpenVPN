@@ -35,6 +35,28 @@ if( saltySalt === undefined ){
 }
 
 var openvpnconfig = Store('openvpnconfig');
+function getAllOpenVPNConfigs(cb){
+  var path = 'easy-rsa/keys';
+  var allConfigs = [];
+  fs.readdir(path, function(err, items) {
+    items.forEach( function(item ){
+      var tmpsplt = item.split(".");
+        if( tmpsplt.length == 2 && ["crt" , "key" ].indexOf( tmpsplt[1] ) !== -1 ){
+          if( !allConfigs.hasOwnProperty( tmpsplt[0] ) ){
+            allConfigs[tmpsplt[0]] = { "crt" : false , "key" : false };
+          }
+          allConfigs[tmpsplt[0]][ tmpsplt[1] ] = true;
+        }
+      });
+      var clean = [];
+      for( var configName in allConfigs ){
+        if( allConfigs[ configName ].crt == true && allConfigs[ configName ].key == true ){
+          clean.push( configName );
+        }
+      }
+      cb( clean );
+  });
+}
 function generateOpenVPNConfig( params ){
   var configString = "";
   configString += "client\n";
@@ -86,6 +108,13 @@ app.get('/configs/:config/:authhash', function(req, res) {
 
 io.on('connection' , function(socket){
   Auth.onConnect( socket );
+  getAllOpenVPNConfigs(function(configs){
+    var goodConfigs = [];
+    configs.forEach( function(item){
+      goodConfigs.push( { "clientName" : item , "hash" : sha256( socket.handshake.address + item + saltySalt ) } );
+    });
+    socket.emit('allClients' , goodConfigs );
+  });
   socket.on('getIp' , function(data){
     socket.emit('myIp' , socket.handshake.address );
   });

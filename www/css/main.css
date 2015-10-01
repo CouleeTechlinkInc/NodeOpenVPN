@@ -31,11 +31,11 @@ div.sidebar ul li {
   text-align: center;
   vertical-align: middle;
   border-width: 0 0 1px 0;
-  background-image: -webkit-linear-gradient(top, #0c93c0, #ffffff);
-  background-image: -moz-linear-gradient(top, #0c93c0, #ffffff);
-  background-image: -ms-linear-gradient(top, #0c93c0, #ffffff);
-  background-image: -o-linear-gradient(top, #0c93c0, #ffffff);
-  background-image: linear-gradient(top, #0c93c0, #ffffff);
+  border-image: -webkit-linear-gradient(top, #0c93c0, #ffffff);
+  border-image: -moz-linear-gradient(top, #0c93c0, #ffffff);
+  border-image: -ms-linear-gradient(top, #0c93c0, #ffffff);
+  border-image: -o-linear-gradient(top, #0c93c0, #ffffff);
+  border-image: linear-gradient(top, #0c93c0, #ffffff);
 }
 div.mainpage {
   position: absolute;

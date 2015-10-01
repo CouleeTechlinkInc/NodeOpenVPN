@@ -4,8 +4,6 @@ div.sidebar {
   left: 0;
   bottom: 0;
   width: 25%;
-}
-div.sidebar ul {
   list-style-type: none;
   /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#474a4f+0,353535+100 */
   background: #474a4f;
@@ -32,6 +30,10 @@ div.sidebar ul li {
   padding: auto;
   text-align: center;
   vertical-align: middle;
+  border-width: 3px;
+  border-style: solid;
+  border-width: 2px;
+  border-image: linear-gradient(bottom, rgba(255, 255, 255, 0), #ffffff, #ffffff) 20% 20%;
 }
 div.mainpage {
   position: absolute;

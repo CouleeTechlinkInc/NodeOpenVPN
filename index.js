@@ -42,7 +42,7 @@ function getAllOpenVPNConfigs(cb){
   fs.readdir(path, function(err, items) {
     items.forEach( function(item ){
       var tmpsplt = item.split(".");
-        if( tmpsplt.length == 2 && ["crt" , "key" ].indexOf( tmpsplt[1] ) !== -1 ){
+        if( tmpsplt.length == 2 && ["crt" , "key" ].indexOf( tmpsplt[1] ) !== -1 && ["server","ca"].indexOf( tmpsplt[0]) === -1 ){
           if( !allConfigs.hasOwnProperty( tmpsplt[0] ) ){
             allConfigs[tmpsplt[0]] = { "crt" : false , "key" : false };
           }

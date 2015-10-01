@@ -1,3 +1,7 @@
 <ul data-bind="foreach : allClients() " >
-  <li data-bind="text : clientName"></li>
+  <li data-bind="text : clientName">
+
+    <!-- ko text : clientName --><!-- /ko -->
+    <a data-bind="attr : { href : '/configs/' + clientName + '/' + hash }" >Download</a>
+  </li>
 </ul>

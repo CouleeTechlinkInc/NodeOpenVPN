@@ -8,4 +8,7 @@ componentToLoadClass = function( params ){
     self.allClients( data );
   });
   self.socket.emit("getOpenVPNConfigs");
+  runOnLogin.push( function(){
+    self.socket.emit("getOpenVPNConfigs");
+  });
 }

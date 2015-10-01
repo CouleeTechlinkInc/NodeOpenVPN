@@ -1,7 +1,16 @@
-<ul data-bind="foreach : allClients() " >
-  <li >
+<div class="sidebar" >
+<ul >
+  <li data-bind="click : function(){ self.subpage('clientList');},css : {'active' : self.subpage() == 'clientList' }" > Client List</li>
+  <li data-bind="click : function(){ self.showWizard( true ); } }" >Create Client</li>
+</ul>
+</div>
 
+<wizard params="show : showWizard, complete : createClientConfig, questions : [{ name : 'Client Name' , 'keyname' : 'clientName' } ]" ></wizard>
+<div class="mainpage" >
+  <ul data-bind="foreach : allClients() " >
+  <li >
     <!-- ko text : clientName --><!-- /ko -->
     <a data-bind="attr : { href : '/configs/' + clientName + '/' + hash }" >Download</a>
   </li>
-</ul>
+  </ul>
+</div>

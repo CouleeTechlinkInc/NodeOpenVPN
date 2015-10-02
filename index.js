@@ -63,7 +63,7 @@ function generateOpenVPNConfig( params ){
   configString += "client\n";
   configString += "dev tun\n";
   configString += "proto udp\n";
-  configString += "remote vpn.timholum.com 1194\n";
+  configString += "remote vpn.slimcrm.com 1194\n";
   configString += "resolv-retry infinite\n";
   configString += "nobind\n";
   configString += "persist-key\n";

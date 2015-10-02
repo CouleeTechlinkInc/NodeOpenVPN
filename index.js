@@ -102,6 +102,7 @@ app.get('/configs/:config/:authhash', function(req, res) {
     archzip.append( generateOpenVPNConfig() , { name: 'client.ovpn' })
         .file('easy-rsa/keys/' + confReq + '.crt', { name: 'client.crt' })
         .file('easy-rsa/keys/' + confReq + '.key', { name: 'client.key' })
+        .file('easy-rsa/keys/ca.crt', { name: 'ca.crt' })
         .file('easy-rsa/keys/dh2048.pem', { name: 'dh2048.pem' })
         .finalize();
   }

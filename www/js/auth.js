@@ -24,7 +24,11 @@ var Auth = function(){
     var authHash = CryptoJS.SHA256(  self.baseHash() + '' + challange ).toString();
     socket.emit( 'verifyAuth' , { hash : authHash , username : self.username() } );
   }
-
+  self.onEnter = function( e ){
+    if (e.keyCode == 13) {
+        self.login();
+    }
+  }
   socket.on('challangeAuth' , function( challange ){
       self.sendLogin(challange);
   });

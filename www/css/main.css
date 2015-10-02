@@ -86,6 +86,9 @@ div.mainpage ul li.clientItem .clientName {
 div.mainpage ul li.clientItem .clientLink {
   float: right;
   color: white;
+  left: -5px;
+  top: 3px;
+  position: relative;
 }
 div.headerbar {
   width: 100%;

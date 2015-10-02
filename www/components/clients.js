@@ -16,4 +16,8 @@ componentToLoadClass = function( params ){
     console.log( params );
     socket.emit("createOpenVPNConfig" , params );
   }
+  socket.on("clientCreated" , function(data){
+    self.allClients.push( data );
+    
+  });
 }

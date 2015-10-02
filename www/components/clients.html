@@ -10,7 +10,7 @@
   <ul data-bind=" visible : showWizard() == false, foreach : allClients() " class="clientLists" >
   <li class="clientItem" >
     <p class="clientName" ><!-- ko text : clientName --><!-- /ko --></p>
-    <a class="clientLink" data-bind="attr : { href : '/configs/' + clientName + '/' + hash }" >Download</a>
+    <a class="clientLink" data-bind="attr : { href : '/configs/' + clientName + '/' + hash }" ><i class="fa fa-download"></i></a>
   </li>
   </ul>
 </div>

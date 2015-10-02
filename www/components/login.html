@@ -20,14 +20,14 @@
             <div class="col-sm-12">
               <div class="input-group">
                 <span class="input-group-addon" id="basic-addon1">Password:</span>
-                <input type="password" data-bind="value : password" class="form-control" placeholder="Password" aria-describedby="basic-addon1">
+                <input type="password" data-bind="value : password,event: { keyup: onEnter }" class="form-control" placeholder="Password" aria-describedby="basic-addon1">
               </div>
             </div>
           </div>
           <br/>
           <div class="row">
             <div class="col-sm-12">
-              <button class="btn btn-primary" style="width: 100% !important" data-bind="click : login,event: { keyup: onEnter }" >Login</button>
+              <button class="btn btn-primary" style="width: 100% !important" data-bind="click : login" >Login</button>
             </div>
           </div>
         </div>

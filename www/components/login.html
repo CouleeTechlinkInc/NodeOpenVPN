@@ -1,6 +1,7 @@
 <!-- ko if : auth.loggedIn() == false -->
   <!-- ko with : auth -->
   <div class="whiteout" >
+    <form data-bind="submit : login" >
     <div class="loginpanel">
       <div class="panel panel-primary">
         <div class="panel-heading">
@@ -20,7 +21,7 @@
             <div class="col-sm-12">
               <div class="input-group">
                 <span class="input-group-addon" id="basic-addon1">Password:</span>
-                <input type="password" data-bind="value : password,event: { keypress: onEnter }" class="form-control" placeholder="Password" aria-describedby="basic-addon1">
+                <input type="password" data-bind="value : password" class="form-control" placeholder="Password" aria-describedby="basic-addon1">
               </div>
             </div>
           </div>
@@ -33,6 +34,7 @@
         </div>
       </div>
     </div>
+  </form>
   </div>
   <!-- /ko -->
 <!-- /ko -->
